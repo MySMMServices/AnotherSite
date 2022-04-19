@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Data</title>
+</head>
+<body>
+    {% for dt in data %}
+    <b>NOTE :</b> Plese select the files below upto 10 files are allowed
+    <br>
+    <b>Name :</b> {{ dt[3] }}
+    <br>
+    <b>Order ID : </b> {{ dt[6] }}
+    <br>
+    <h3><b>TITLE :</b> {{ dt[34] }}</h3><br>
+    <form action = "/uploadimg?id={{ dt[0] }}" method = "POST" 
+         enctype = "multipart/form-data">
+         <label for="files[]">Screen Shot</label>
+         <input type = "file" name = "files[]" multiple="true" required />
+         <input type = "submit" value="Submit" />
+    </form>
+    <hr>
+    {% endfor %}
+</body>
+</html>
